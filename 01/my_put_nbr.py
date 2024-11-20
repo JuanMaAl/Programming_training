@@ -1,6 +1,20 @@
 from my_putchar import *
 
-my_putchar("a")
-my_putchar(9)
-my_putchar(-5)
-my_putchar(125)
+def one_digit_to_char (digit):
+	digits = "0123456789"
+	return digits[digit]
+
+def my_put_nbr(nb):
+	if nb < 0:
+		nb *= -1
+		my_putchar("-")
+	if nb // 10 > 0:
+		my_put_nbr(nb // 10)
+	my_putchar(one_digit_to_char(nb % 10))
+
+#my_put_nbr(24)
+#my_putchar("\n")
+#my_put_nbr(24242424)
+#my_putchar("\n")
+#my_put_nbr(-24)
+#my_putchar("\n")
