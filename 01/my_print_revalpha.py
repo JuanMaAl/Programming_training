@@ -8,4 +8,4 @@ def my_print_revalpha():
 		i -= 1
 	my_putchar('\n')
 
-# my_print_revalpha()
+#my_print_revalpha()

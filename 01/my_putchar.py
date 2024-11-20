@@ -1,6 +1,8 @@
 def my_putchar(c):
-	print(c, end='')
+	str_one = ""
+	str_one = c
+	print(str_one[0], end='')
 
-#my_put_char('a')
-#my_put_char('b')
-#my_put_char('\n')
+#my_putchar('abcd')
+#my_putchar('b')
+#my_putchar('\n')
