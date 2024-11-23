@@ -4,9 +4,15 @@ from my_put_nbr import *
 def special_cases(n):
 	if n < 1 or n > 10:
 		i = 0
-		message = "El valor de n tiene que estar entre 1 y 10 ya que el sistema decimal tiene 10 digitos diferentes 0123456789#"
-		while (message[i] != "#"):
-			my_putchar(message[i])
+		message1 = "El valor de n tiene que estar entre 1 y 10#"
+		message2 = "El sistema decimal tiene 10 digitos diferentes#"
+		while (message1[i] != "#"):
+			my_putchar(message1[i])
+			i += 1
+		i = 0
+		my_putchar("\n")
+		while (message2[i] != "#"):
+			my_putchar(message2[i])
 			i += 1
 		my_putchar("\n")
 		return True
@@ -72,8 +78,9 @@ def my_print_combn(n):
 		i += 1
 	my_putchar("\n")
 
-my_print_combn(-5)
-my_print_combn(0)
-my_print_combn(11)
-my_print_combn(10)
-my_print_combn(3)
+#my_print_combn(-5)
+#my_print_combn(0)
+#my_print_combn(11)
+#my_print_combn(10)
+#my_print_combn(3)
+#my_print_combn(7)
