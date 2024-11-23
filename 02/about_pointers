@@ -1,0 +1,6 @@
+Python no usa punteros de la misma manera que los lenguajes como C. 
+
+Para la realizacion de los siguientes ejercicios, se ha optado por
+usar los tipos mutablaes como punteros.
+
+Los ejercicios resueltos estaban inicialmente planteados para c y no permitian el uso de la funcion printf, permitiendo utilizar solo la funcion write, con la idea de que como norma general se imprima caracter a caracter. Esto se simula con el script my_put_char en el que uso print() para mostrar por pantalla un solo caracter.
