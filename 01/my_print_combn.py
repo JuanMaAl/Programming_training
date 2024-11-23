@@ -16,6 +16,7 @@ def special_cases(n):
 		while (i < 10):
 			my_putchar(number[i])
 			i += 1
+		my_putchar("\n")
 		return True
 	return False
 
@@ -30,6 +31,10 @@ def put_zeros(i, n):
 	if n == 1 and i == 0:
 		my_putchar("0")
 		return 
+	if count_zeros(i, n) == 1:
+		my_putchar("0")
+
+def count_zeros(i, n):
 	j = i
 	k = 1
 	while (j // 10 > 0):
@@ -38,17 +43,19 @@ def put_zeros(i, n):
 	n_zeros = n - k
 	if n_zeros > 1:
 		return -1
-	if n_zeros > 0:
-		my_putchar("0")
-	
-def nbr_is_printable(i, n):
+	return n_zeros 
+
+def nbr_is_printable(i, n, flag):
 	j = i
 	while (j // 10 > 0):
 		if (j % 100) // 10 >= j % 10:
 			return False
 		j //= 10
-	if put_zeros(i, n) == -1:
-		return False	
+	if count_zeros(i, n) == -1:
+		return False
+	if flag == True:
+		my_putchar(",")
+		my_putchar(" ")
 	return True
 
 def my_print_combn(n):
@@ -56,10 +63,17 @@ def my_print_combn(n):
 		return 
 	lim = limit(n)
 	i = 0
+	flag = False
 	while (i < lim):
-		if nbr_is_printable(i, n):
+		if nbr_is_printable(i, n, flag):
+			flag = True
+			put_zeros(i, n)
 			my_put_nbr(i)
-			my_putchar(" ")
 		i += 1
+	my_putchar("\n")
 
+my_print_combn(-5)
+my_print_combn(0)
+my_print_combn(11)
 my_print_combn(10)
+my_print_combn(3)
