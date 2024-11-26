@@ -10,6 +10,8 @@ def digit_to_nbr(digit):
 	return numbers[i]
 
 def my_getnbr(string):
+	if not string:
+		return 0
 	number = 0
 	i = 0
 	sign = 1
@@ -18,6 +20,8 @@ def my_getnbr(string):
 		if string[i] == "-":
 			sign *= -1
 		i += 1
+		if i == last:
+			break
 	while i < last and string[i] >= '0' and string[i] <= '9':
 		number = (number * 10) + digit_to_nbr(string[i])
 		if number * sign > 2147483647 or number * sign < -2147483648:
@@ -29,3 +33,5 @@ def my_getnbr(string):
 #print(my_getnbr("42a43"))
 #print(my_getnbr("11000000000000000000000042"))
 #print(my_getnbr("-1000000000000000000000042"))
+#print(my_getnbr("  "))
+#print(my_getnbr(""))
