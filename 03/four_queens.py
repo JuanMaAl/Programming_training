@@ -16,6 +16,36 @@ class square:
 		self.diagonal_one = diagonal_one
 		self.diagonal_two = diagonal_two
 
+#funcion para comprobar que dos damas no se atacan
+def two_ok(queen_a, queen_b):
+	if queen_a.name == queen_b.name:
+		return False
+	if queen_a.file == queen_b.file:
+		return False
+	if queen_a.rank == queen_b.rank:
+		return False
+	if queen_a.diagonal_one == queen_b.diagonal_one:
+		return False
+	if queen_a.diagonal_two == queen_b.diagonal_two:
+		return False
+	return True
+
+#funcion para comprobar que todas las damas no se atacan
+def all_ok(q_one, q_two, q_three, q_four):
+	if not two_ok(q_one, q_two):
+		return False
+	if not two_ok(q_one, q_three):
+		return False
+	if not two_ok(q_one, q_four):
+		return False
+	if not two_ok(q_two, q_three):
+		return False
+	if not two_ok(q_two, q_four):
+		return False
+	if not two_ok(q_three, q_four):
+		return False
+	return True
+	
 #Creando la lista de diagonales
 one = [
 "a1b2c3d4", #0
@@ -58,6 +88,23 @@ squares.append(square("d4", "d", "4", one[0], two[6]))
 
 #Testeo
 i = 0
+j = i + 1
+k = j + 1
+l = k + 1
+solutions = 0
 while i < 16:
-	print(squares[i].name)
+	while j < 16:
+		while k < 16:
+			while l < 16: 
+				if all_ok(squares[i], squares[j], squares[k], squares[l]):
+					solutions += 1
+					print(squares[i].name, squares[j].name, squares[k].name, squares[l].name)
+				l += 1
+
+			k += 1
+			l = k
+		j += 1
+		k = j
 	i += 1
+	j = i
+print(solutions)
