@@ -214,26 +214,39 @@ squares.append(square("h8", "h", "8", one[0], two[14]))
 
 #Testeo
 a = 0
-b = a + 1
-c = b + 1
-d = c + 1
-e = d + 1
-f = e + 1
-g = f + 1
-h = g + 1
+b = 8
+c = 16
+d = 24
+e = 32
+f = 40
+g = 48
+h = 56
 solutions = 0
-while i < 16:
-	while j < 16:
-		while k < 16:
-			while l < 16: 
-				if all_ok(squares[i], squares[j], squares[k], squares[l]):
-					solutions += 1
-					print(squares[i].name, squares[j].name, squares[k].name, squares[l].name)
-				l += 1
-			k += 1
-			l = k
-		j += 1
-		k = j
-	i += 1
-	j = i
+while a < 8:
+	while b < 16:
+		while c < 24:
+			while d < 32:
+				while e < 40:
+					while f < 48:
+						while g < 56:
+							while h < 64:
+								if all_ok(squares[a], squares[b], squares[c], squares[d], squares[e], squares[f], squares[g], squares[h]):
+									solutions += 1
+									print(squares[a].name, squares[b].name, squares[c].name, squares[d].name, squares[e].name, squares[f].name, squares[g].name, squares[h].name)
+								h += 1
+							g += 1
+							h = 56
+						f += 1
+						g = 48
+					e += 1
+					f = 40
+				d += 1
+				e = 32
+			c += 1
+			d = 24
+		b += 1
+		c = 16
+	a += 1
+	b = 8
+
 print(solutions)
