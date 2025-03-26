@@ -8,8 +8,7 @@ def divisible_by_five(lst):
 	return divisibles_by_five
 
 numbers_lst = []
-for number in range(100):
-	number += 1
+for number in range(1, 101):
 	numbers_lst.append(number)
 print(numbers_lst)
 print()
