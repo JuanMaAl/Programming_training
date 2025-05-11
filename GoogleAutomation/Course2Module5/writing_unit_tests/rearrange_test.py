@@ -11,5 +11,5 @@ class TestRearrange(unittest.TestCase):
 		expected = "Ada Lovelace"
 		self.assertEqual(rearrange_name(testcase), expected)
 
-# Run the tests
+# Run the tests unittest
 unittest.main()
