@@ -1,3 +1,5 @@
+# import pdb
+
 class Node:
 	data = ''
 	next = None
@@ -23,6 +25,17 @@ class LinkedList:
 		self.__tail = Node("D", None)
 		nodeC.next = self.__tail
 	
+	def insert(self, insertPosition, newNode):
+		# pdb.set_trace()
+		p = self.__head
+		i = 0
+		# Mueva el nodo a la posicion de insercion
+		while p.next != None and i < insertPosition -1:
+			p = p.next
+			i += 1
+		newNode.next = p.next
+		p.next = newNode
+
 	@property
 	def head(self):
 		return self.__head
@@ -40,6 +53,8 @@ def output(node):
 def main():
 	linkedlist = LinkedList()
 	linkedlist.init()
+
+	linkedlist.insert(3, Node("E", None)) # Insertar un nuevo nodo en la posicion 2
 
 	output(linkedlist.head)
 
