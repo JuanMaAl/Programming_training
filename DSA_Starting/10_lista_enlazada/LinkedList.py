@@ -36,6 +36,17 @@ class LinkedList:
 		newNode.next = p.next
 		p.next = newNode
 
+	def remove(self, removePosition):
+		p = self.__head
+		i = 0
+		# Mueve el nodo a la posicion anterior del nodo a remover
+		while p.next != None and i < removePosition -1:
+			p = p.next
+			i += 1
+		temp = p.next # Guarda el nodo que desea eliminar
+		p.next = p.next.next
+		temp.next = None # Elimina el nodo
+		
 	@property
 	def head(self):
 		return self.__head
@@ -55,7 +66,7 @@ def main():
 	linkedlist.init()
 
 	linkedlist.insert(3, Node("E", None)) # Insertar un nuevo nodo en la posicion 2
-
+	linkedlist.remove(2) # Remover el nodo en la tercera posicion
 	output(linkedlist.head)
 
 if __name__ == "__main__":
