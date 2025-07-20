@@ -1,6 +1,8 @@
 from email.message import EmailMessage
 import os.path
 import mimetypes
+import smtplib
+import getpass
 
 message = EmailMessage()
 sender = "me@example.com"
@@ -25,3 +27,11 @@ with open(attachment_path, 'rb') as ap:
 							filename = os.path.basename(attachment_path))
 
 print(message)
+
+mail_server = smtplib.SMTP_SSl('smtp.example.com')
+mail_server.set_debuglevel(1)
+mail_pass = getpass.getpass('Password? ')
+print(mail_pass)
+print(mail_server.login(sender mail_pass))
+mail_server.send_message(message)
+mail_server.quit()
