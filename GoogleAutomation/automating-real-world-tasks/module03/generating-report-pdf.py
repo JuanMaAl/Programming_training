@@ -1,6 +1,7 @@
 from reportlab.platypus import SimpleDocTemplate
 from reportlab.platypus import Paragraph, Spacer, Table, Image
 from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
 
 fruit = {
 	"elderberries": 1,
@@ -15,4 +16,11 @@ fruit = {
 report = SimpleDocTemplate("./report.pdf")
 styles = getSampleStyleSheet()
 report_title = Paragraph("A Complete Inventory of My Fruit", styles["h1"])
-report.build([report_title])
+
+table_data = []
+for fruit_name, number_fruits in fruit.items():
+	table_data.append([fruit_name, number_fruits])
+
+table_style = [('GRID', (0,0), (-1,-1), 1, colors.black)]
+report_table = Table(data=table_data, style=table_style, hAlign="LEFT")
+report.build([report_title, report_table])
