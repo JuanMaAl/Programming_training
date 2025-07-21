@@ -2,8 +2,8 @@
 
 function summMix(mixedArray) {
 	let sum = 0
-	for (let element in mixedArray){
-		sum = sum + Number(mixedArray[element])
+	for (let i = 0; i < mixedArray.length; i++){
+		sum = sum + Number(mixedArray[i])
 	}
 
 	return sum
